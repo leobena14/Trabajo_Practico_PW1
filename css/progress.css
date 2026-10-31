@@ -1,0 +1,15 @@
+/* Progress mapa */
+.leccion progress {
+    display: block;
+    width: 80%;
+    height: 1em;
+    margin: 0.5em auto 1em;
+    accent-color: #4F46E5;
+}
+
+/* Progress lección */
+.barra-leccion progress {
+    flex: 1;
+    height: 1em;
+    accent-color: #4F46E5;
+}

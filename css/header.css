@@ -1,0 +1,35 @@
+/* Header general (Login/Tienda) */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Barra de lección (Forzado para el HTML de lecciones) */
+header.barra-leccion {
+    width: 80%;
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1em;
+    padding: 1em;
+    margin: 0 auto;
+}
+
+header.barra-leccion a {
+    text-decoration: none;
+    color: #1F2937;
+    font-size: 3em;
+}
+
+header.barra-leccion progress {
+    flex: 1;
+    height: 1em;
+    accent-color: #4F46E5;
+}
+
+header.barra-leccion p {
+    margin: 0;
+    font-size: 1.5em;
+}

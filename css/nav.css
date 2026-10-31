@@ -1,0 +1,76 @@
+/* Nav general */
+.principal {
+    background-color: #4F46E5;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1.5em;
+    width: 80%;
+margin:0 auto;
+margin-top: 0;
+}
+
+.principal a {
+    text-decoration: none;
+    color: white;
+    margin: 0 0.5em;
+}
+
+/* Nav ranking */
+body.pagina-ranking .principal {
+    width: 80%;
+    background-color: #4F46E5;
+    color: white;
+    margin: 0 auto;
+    padding: 0.5em;
+    text-decoration: none;
+    font-size: 1.5em;
+    position: sticky;
+    top: 0;
+}
+
+body.pagina-ranking .principal a {
+    text-decoration: none;
+    color: white;
+    margin: 0 0.5em;
+}
+
+/* Ligas ranking */
+body.pagina-ranking .ligas a {
+    text-decoration: none;
+    color: white;
+    margin: 0 0.5em;
+    background-color: #4F46E5;
+    border-radius: 1em;
+    font-size: 1.5em;
+    padding: 0 0.5em;
+}
+
+/* Menú hamburguesa */
+#menu-toggle,
+.hamburguesa {
+    display: none;
+}
+
+.principal .enlaces {
+    display: inline;
+}
+
+.principal .enlaces::before {
+    content: "| ";
+}
+
+.principal .enlaces::after {
+    content: " |";
+}
+
+nav.principal {
+    background-color: #4F46E5;
+    color: white;
+    text-align: center;
+    font-size: 1.5em;
+    padding: 1.5em;
+    width: 80%;
+    margin: 0 auto;
+    display: block; /* Aseguramos que no sea flex en escritorio */
+}

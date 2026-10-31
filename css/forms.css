@@ -1,0 +1,211 @@
+/* Formularios generales */
+form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 1.5%;
+}
+
+/* Inputs login/tienda */
+#contrasena,
+#usuario,
+#nombre,
+#edad,
+#email {
+    width: 20%;
+    margin-bottom: 2%;
+    border-radius: 2em;
+    padding: 0.5%;
+    background-color: white;
+}
+
+#links {
+    display: flex;
+    gap: 2em;
+}
+
+/* Formularios compra */
+fieldset {
+    margin-top: 5rem;
+    background-color: white;
+    border: 0.15em solid #4F46E5;
+    border-radius: 0.5em;
+    padding: 2.5em;
+}
+
+label {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 0.3em;
+    color: #4F46E5;
+    font-weight: bold;
+}
+
+input {
+    width: 100%;
+    padding: 0.6em;
+    border: 0.0625em solid #DDD6FE;
+    border-radius: 0.25em;
+    font-family: serif;
+    font-size: 1em;
+}
+
+input:focus {
+    outline: none;
+    border-color: #4F46E5;
+}
+
+/* Formularios perfil */
+body.pagina-perfil .form {
+    border: 0.08em solid black;
+    padding: 1.2em;
+    margin-bottom: 1.2em;
+    width: 100%;
+    max-width: 28em;
+}
+
+body.pagina-perfil legend {
+    padding: 0 0.4em;
+}
+
+body.pagina-perfil .form-idioma {
+    border: none;
+    padding: 0;
+}
+
+body.pagina-perfil .grupo-datos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.08em;
+    gap: 1em;
+}
+
+body.pagina-perfil .grupo-datos label {
+    font-size: 0.9em;
+}
+
+body.pagina-perfil .input,
+body.pagina-perfil select {
+    width: 12em;
+    padding: 0.3em 0.5em;
+    border: 0.08em solid rgb(81, 80, 80);
+    background-color: white;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+body.pagina-perfil .botones {
+    display: flex;
+    justify-content: center;
+    gap: 1em;
+    padding: 1.5em 4em;
+}
+
+body.pagina-perfil .boton-cancelar,
+body.pagina-perfil .boton-guardar {
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    color: black;
+}
+
+body.pagina-perfil .boton-cancelar:hover {
+    color: white;
+    background-color: rgb(215, 65, 65);
+}
+
+body.pagina-perfil .boton-cancelar a {
+    color: inherit;
+    text-decoration: none;
+}
+
+body.pagina-perfil .boton-guardar:hover {
+    color: white;
+    background-color: rgb(37, 138, 37);
+}
+
+body.pagina-perfil .dato-linea {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 0.5em;
+}
+
+body.pagina-perfil .dato-email {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    gap: 0.5em;
+}
+
+body.pagina-perfil .btn-editar {
+    padding: 0.2em 0.5em;
+    font-size: 0.8em;
+    background-color: #E5E7EB;
+    border: 0.08em solid black;
+    border-radius: 0.3em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+body.pagina-perfil .btn-editar:hover {
+    background-color: #D1D5DB;
+}
+
+body.pagina-perfil .modal-edicion {
+    margin: auto;
+    width: 90%;
+    max-width: 24em;
+    border: 0.1em solid black;
+    border-radius: 0.5em;
+    background-color: white;
+    padding: 1.5em;
+}
+
+body.pagina-perfil .form-modal h3 {
+    margin-bottom: 1em;
+    font-size: 1.1em;
+    text-align: center;
+}
+
+body.pagina-perfil .form-modal .campo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.8em;
+    gap: 0.5em;
+}
+
+body.pagina-perfil .form-modal .campo label {
+    font-size: 0.85em;
+    width: 45%;
+}
+
+body.pagina-perfil .form-modal .campo input {
+    width: 55%;
+}
+
+body.pagina-perfil .modal-acciones {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.8em;
+    margin-top: 1.2em;
+}
+
+body.pagina-perfil .boton-cerrar {
+    padding: 0.3em 0.8em;
+    border-radius: 0.5em;
+    border: 0.08em solid black;
+    background-color: #E5E7EB;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+body.pagina-perfil .boton-cerrar:hover {
+    background-color: rgb(215, 65, 65);
+    color: white;
+}

@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Reset extra dashboard y perfil */
+body.pagina-dashboard *,
+body.pagina-perfil * {
+    margin: 0%;
+    padding: 0%;
+}
+
+/* Fondo de lección */
+body.pagina-leccion  {
+    background-color: #DDD6FE;
+    margin: 0;
+}
+
+/* Body por página */
+body.pagina-login {
+    background-color: #F5F3FF;
+}
+
+body.pagina-dashboard {
+    background-color: #DDD6FE;
+    font-family: serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0; 
+    width: 100%;
+}
+
+body.pagina-mapa {
+    text-align: center;
+    background-color: #DDD6FE;
+    margin: 0;
+}
+
+body.pagina-compra {
+    background-color: #DDD6FE;
+    font-family: serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+     margin: 0;
+}
+
+body.pagina-perfil {
+    background-color: #DDD6FE;
+    font-family: serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body.pagina-ranking {
+    text-align: center;
+    background-color: #DDD6FE;
+    margin: 0;
+}
+
+/* Imágenes */
+img {
+    width: 20em;
+    max-width: 100%;
+}
+
+body.pagina-perfil img {
+    width: 10em;
+    height: 10em;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 0.5em;
+}
+
+body.pagina-ranking img {
+    width: 3em;
+}
+
+/* Tipografía lección */
+body.pagina-leccion p {
+    font-size: 1.5em;
+}
+
+body.pagina-leccion strong {
+    font-size: 2em;
+    color: black solid;
+}
+
+/* Eslogan login/tienda */
+.eslogan {
+    font-size: 1.5em;
+    color: #4B5563;
+}

@@ -1,0 +1,182 @@
+/* Botón general login/tienda */
+button {
+    background-color: #4F46E5;
+    font-size: 1.5em;
+    color: white;
+    border-radius: 1.5em;
+    margin-bottom: 2%;
+    border: none;
+    cursor: pointer;
+    padding: 0.2em 1em; 
+}
+
+/* Botón dashboard */
+body.pagina-dashboard button {
+    margin-top: 1rem;
+    background: #eee;
+    border: 0.0625rem solid #999;
+    border-radius: 0.1875rem;
+    padding: .3125rem 0.875rem;
+    font-weight: bold;
+    font-size: 0.8125rem;
+}
+
+body.pagina-dashboard button:hover {
+    background: #e0e0e0;
+}
+
+/* Botón lección */
+body.pagina-leccion button {
+    color: white;
+    background-color: #4F46E5;
+    border-radius: 1em;
+    font-size: 1em;
+    padding: 0 0.5em;
+}
+
+/* Login */
+.login {
+    background-color: #4F46E5;
+    color: #FFFFFF;
+    font-size: 1em;
+    padding: 0.5em 1.5em;
+    border: none;
+    border-radius: 1em;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* Botones mapa */
+.boton-iniciar,
+.boton-volver,
+.boton-repasar,
+.boton-premium {
+    text-decoration: none;
+    color: white;
+    background-color: #4F46E5;
+    border-radius: 1em;
+    font-size: 1.5em;
+    padding: 0 0.5em;
+}
+
+/* Botones lección */
+.boton-comprobar,
+.boton-volver {
+    text-decoration: none;
+    color: white;
+    background-color: #4F46E5;
+    border-radius: 1em;
+    font-size: 1.5em;
+    padding: 0 0.5em;
+}
+
+/* Botones compra */
+.boton-comprar {
+      width: auto; 
+    align-self: center; 
+    margin-top: 1.5em;
+    padding: 0.5em 2em; 
+    background-color: #4F46E5;
+    color: white;
+    border: none;
+    border-radius: 1em;
+    font-family: serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.boton-comprar:hover {
+    background-color: #4338CA;
+}
+
+.cancelar {
+    display: block;
+    width: 80%;
+    max-width: 10rem;
+    margin: 1em auto 0;
+    padding: 0.8em;
+    background-color: transparent;
+    color: #000000;
+    border: 0.0625em solid #070707;
+    border-radius: 0.25em;
+    text-align: center;
+    text-decoration: none;
+    font-family: serif;
+    font-weight: bold;
+}
+
+.cancelar:hover {
+    background-color: #4F46E5;
+    color: white;
+}
+
+.volver {
+    display: block;
+    padding: 0.8em;
+    background-color: #4F46E5;
+    color: white;
+    border-radius: 0.25em;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.volver:hover {
+    background-color: #4338CA;
+}
+
+/* Botones dashboard */
+body.pagina-dashboard article.cursos a {
+    align-self: center;
+    margin-top: auto;
+    text-decoration: none;
+    background-color: #4F46E5;
+    color: white;
+    padding: 0.9rem 2.5rem;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+body.pagina-dashboard article.cursos a:hover {
+    background-color: #4338CA;
+}
+
+body.pagina-dashboard article.cursos a.quitar {
+    margin-top: 1rem;
+}
+
+body.pagina-dashboard a.restaurar {
+    text-decoration: none;
+    background-color: #4F46E5;
+    color: white;
+    padding: 0.9rem 2.5rem;
+    border-radius: 1.5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-bottom: 2em;
+}
+
+body.pagina-dashboard a.restaurar:hover {
+    background-color: #4338CA;
+}
+
+/* Botones editar del perfil */
+body.pagina-perfil .btn-editar {
+    background-color: #4F46E5;
+    color: white;
+    border: none;
+    border-radius: 0.5em;
+    padding: 0.2em 0.6em;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+body.pagina-perfil .btn-editar:hover {
+    background-color: #4338CA;
+}
