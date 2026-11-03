@@ -3,6 +3,20 @@ import { guardarEnStorage, traerDeStorage } from './storage.js';
 document.addEventListener("DOMContentLoaded", () => {
     const formulario = document.querySelector("form");
 
+    const palabrasProhibidas = ["boludo", "boluda","pelotudo", "pelotuda","forro", "forra",
+  "pajero", "pajera","sorrete","cagon", "cagona","gorreado", "gorreada","malparido", "malparida","concha", "conchuda", "conchudo",
+  "pija","chota","orto","puto", "puta","trolo", "trola","hdp", "hijodeputa","hdmp", "hijodemilputa","gil", "gilastrun","culiao", "culia",
+  "culiado","culiada","culiando","culiandome","culiandonos","judio","judia","judios","judias","negro", "negra","negros", "negras","gay"];
+
+    //verifica si algún texto contiene términos de la lista
+    function contieneOfensas(...textos) {
+        return textos.some(texto => {
+            const textoMinusculas = texto.toLowerCase();
+            return palabrasProhibidas.some(palabra => 
+            textoMinusculas.includes(palabra.toLowerCase()));
+        });
+    }
+
     formulario.addEventListener("submit", (evento) => {
         
         // Frenamos la recarga
@@ -18,6 +32,11 @@ document.addEventListener("DOMContentLoaded", () => {
         // Validación básica (el navegador ya valida con 'required', pero por las dudas)
         if (!email || !contrasena || !nombre || !usuario || !edad) {
             alert("Por favor, completá todos los campos.");
+            return;
+        }
+        // Validación de contenido ofensivo en el nombre y nombre de usuario
+        if (contieneOfensas(nombre, usuario)) {
+            alert("Contiene contenido ofensivo/explícito.");
             return;
         }
 

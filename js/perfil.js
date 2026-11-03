@@ -1,6 +1,25 @@
 import { traerDeStorage, guardarUsuarioActivo } from './storage.js';
 import { planes } from './planes.js';
 
+// Lista de palabras no permitidas
+const palabrasProhibidas = [
+    "boludo", "boluda", "pelotudo", "pelotuda", "forro", "forra",
+    "pajero", "pajera", "sorrete", "cagon", "cagona", "gorreado", "gorreada", "malparido", "malparida",
+    "concha", "conchuda", "conchudo", "pija", "chota", "orto", "puto", "puta", "trolo", "trola",
+    "hdp", "hijodeputa", "hdmp", "hijodemilputa", "gil", "gilastrun", "culiao", "culia",
+    "culiado", "culiada", "culiando", "culiandome", "culiandonos", "judio", "judia", "judios", "judias",
+    "negro", "negra", "negros", "negras", "gay"];
+
+// Función para verificar si algún texto contiene términos de la lista
+function contieneOfensas(...textos) {
+    return textos.some(texto => {
+        const textoMinusculas = texto.toLowerCase();
+        return palabrasProhibidas.some(palabra => 
+            textoMinusculas.includes(palabra.toLowerCase())
+        );
+    });
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     const usuarioActivo = traerDeStorage("usuarioActivo");
     if (!usuarioActivo) {
@@ -76,6 +95,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
             if (contrasena !== usuarioActivo.contrasena) {
                 mensaje.textContent = "⚠ Error: la contraseña actual no es correcta.";
+                return;
+            }
+
+            
+            if ((campo === "nombre" || campo === "usuario") && contieneOfensas(valorNuevo)) {
+                mensaje.textContent = "⚠ Error: contiene contenido ofensivo/explícito.";
                 return;
             }
 
