@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         // Creamos el nuevo usuario
-        const nuevoUsuario = { email, contrasena, nombre, usuario, edad };
+        const nuevoUsuario = { email, contrasena, nombre, usuario, edad, fechaRegistro: new Date().toISOString() };
         
         // Lo agregamos a la lista y lo guardamos
         usuarios.push(nuevoUsuario);

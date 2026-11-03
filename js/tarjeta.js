@@ -1,4 +1,4 @@
-import { traerDeStorage, guardarEnStorage } from './storage.js';
+import { traerDeStorage, guardarUsuarioActivo } from './storage.js';
 import { planes } from './planes.js';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -18,12 +18,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const idPlan = parametros.get("plan");
     const plan = planes.find(p => p.id === idPlan);
 
-    // Si el plan no existe (URL mal escrita), avisamos y escondemos el formulario
-    if (!plan) {
-        tituloPlan.textContent = "⚠ El plan elegido no existe. Volvé a la tienda y elegí uno.";
-        formulario.querySelectorAll("input, button").forEach(campo => campo.disabled = true);
-        return;
-    }
 
     tituloPlan.textContent = `Estás comprando: ${plan.nombre}`;
     botonComprar.textContent = `Comprar — ARS ${plan.precio}`;
@@ -118,17 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // Todo OK: guardamos el plan en el usuario (los datos de la tarjeta NO se guardan)
         usuarioActivo.plan = plan.id;
-        guardarEnStorage("usuarioActivo", usuarioActivo);
-
-        // También lo actualizamos en la lista de usuarios para que no se pierda al volver a loguearse
-        const usuarios = traerDeStorage("usuariosRegistrados") || [];
-        const posicion = usuarios.findIndex(u => u.usuario === usuarioActivo.usuario);
-        if (posicion !== -1) {
-            usuarios[posicion].plan = plan.id;
-            guardarEnStorage("usuariosRegistrados", usuarios);
-        }
+        guardarUsuarioActivo(usuarioActivo);
 
         window.location.href = `compraExitosa.html?plan=${plan.id}`;
     });

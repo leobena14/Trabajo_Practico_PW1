@@ -15,139 +15,151 @@
 </head>
 
 <body class="pagina-perfil">
- <nav aria-label="principal" class="principal">
-    <strong>LingoWeb</strong>
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="hamburguesa" aria-label="Abrir menú">☰</label>
-    <p class="enlaces">
-        <a href="../dashboard/dashboard-principal.html">CURSOS</a>
-        <a href="../perfil/perfil-usuario.html">PERFIL</a>
-        <a href="../ranking/ranking-personal.html">RANKING</a>
-        <a href="../tienda/tienda.html">TIENDA</a>
-    </p>
-</nav>
+    <nav aria-label="principal" class="principal">
+        <strong>LingoWeb</strong>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburguesa" aria-label="Abrir menú">☰</label>
+        <p class="enlaces">
+            <a href="../dashboard/dashboard-principal.html">CURSOS</a>
+            <a href="../perfil/perfil-usuario.html" class="activo" aria-current="page">PERFIL</a>
+            <a href="../ranking/ranking-personal.html">RANKING</a>
+            <a href="../tienda/tienda.html">TIENDA</a>
+        </p>
+    </nav>
+
     <main class="contenedor-prin">
         <section class="perfil-usuario">
             <figure>
-                <img src="../img/avatar-05.png" alt="Foto de perfil">
+                <img src="../img/avatar-05.png" alt="Foto de perfil" id="perfil-avatar">
             </figure>
             <div class="dato-linea">
-                <h2>Juan Perez</h2>
-                <button type="button" class="btn-editar" command="show-modal" commandfor="modal-nombre">
-                Editar</button>
+                <h2 id="perfil-nombre"></h2>
+                <button type="button" class="btn-editar" data-modal="modal-nombre">Editar</button>
             </div>
             <div class="dato-linea">
-                <p>@juanperez_web</p>
-                <button type="button" class="btn-editar" command="show-modal" commandfor="modal-usuario">
-                    Editar</button>
+                <p id="perfil-usuario"></p>
+                <button type="button" class="btn-editar" data-modal="modal-usuario">Editar</button>
             </div>
-            <p>Miembro desde Febrero 2025</p>
+            <p id="perfil-miembro"></p>
             <section class="logros">
                 <h3>Logros Académicos</h3>
                 <ul>
-                    <li><strong>Insignias:</strong>5 Obtenidas</li>
-                    <li><strong>Racha:</strong>🔥 12 Días</li>
-                    <li><strong>Total XP:</strong>720 XP</li>
+                    <li><strong>Insignias: </strong><span id="perfil-insignias"></span></li>
+                    <li><strong>Racha: </strong><span id="perfil-racha"></span></li>
+                    <li><strong>Total XP: </strong><span id="perfil-xp"></span></li>
                 </ul>
             </section>
         </section>
+
         <section class="bloque-der">
-            <form action="../dashboard/dashboard-principal.html" method="get">
+            <p id="mensaje-perfil" class="mensaje-ok" role="status"></p>
+
+            <form id="form-perfil" novalidate>
                 <section class="datos-usuario">
                     <div class="datos">
                         <div class="dato-email">
                             <strong>Email registrado: </strong>
-                            juanperez@gmail.com
-                            <button type="button" class="btn-editar" command="show-modal" commandfor="modal-email">
-                            Editar</button>
+                            <span id="perfil-email"></span>
+                            <button type="button" class="btn-editar" data-modal="modal-email">Editar</button>
                         </div>
-                            <p><strong>Plan: </strong>Básico</p>
+                        <p><strong>Plan: </strong><span id="perfil-plan"></span></p>
                     </div>
                     <fieldset class="form">
-                        <legend>Actualizacion de contraseña</legend>
+                        <legend>Actualización de contraseña (opcional)</legend>
                         <p class="grupo-datos">
                             <label for="password"><strong>Contraseña actual:</strong></label>
-                            <input type="password" id="password" name="contraseña-actual" class="input" required>
+                            <input type="password" id="password" name="contraseña-actual" class="input">
                         </p>
                         <p class="grupo-datos">
                             <label for="nueva-contraseña">Nueva contraseña:</label>
-                            <input type="password" id="nueva-contraseña" name="nueva-contraseña" class="input" required>
+                            <input type="password" id="nueva-contraseña" name="nueva-contraseña" class="input">
                         </p>
                         <p class="grupo-datos">
                             <label for="confirmar-contraseña">Confirmar contraseña:</label>
-                            <input type="password" id="confirmar-contraseña" name="confirmar-contraseña" class="input"
-                            required>
+                            <input type="password" id="confirmar-contraseña" name="confirmar-contraseña" class="input">
                         </p>
                     </fieldset>
                     <fieldset class="form">
                         <label for="idioma">Idioma principal
                             <select id="idioma" name="idioma">
-                                <option value="es" selected>Español</option>
-                                <option value="en" >Ingles</option>
-                                <option value="al" >Aleman</option>
+                                <option value="es">Español</option>
+                                <option value="en">Inglés</option>
+                                <option value="de">Alemán</option>
                             </select>
                         </label>
                     </fieldset>
                 </section>
+
+                <p id="mensaje-form" class="mensaje-error" role="alert"></p>
+
                 <section class="botones">
-                        <button type="submit" class="boton-guardar">Guardar Cambios</button>
-                        <button type="button" class="boton-cancelar"> <a href="../index.html">Cerrar Sesion</a></button>
+                    <button type="submit" class="boton-guardar">Guardar Cambios</button>
+                    <button type="button" class="boton-cancelar" id="boton-cerrar-sesion">Cerrar Sesión</button>
                 </section>
             </form>
         </section>
+
         <section class="ventana-editar">
             <dialog id="modal-nombre" class="modal-edicion">
-                <form method="dialog" class="form-modal">
+                <form class="form-modal" novalidate>
                     <h3>Cambiar Nombre</h3>
                     <div class="campo">
                         <label for="nuevo-nombre">Nuevo Nombre:</label>
-                        <input type="text" id="nuevo-nombre" name="nuevo_nombre" required>
+                        <input type="text" id="nuevo-nombre" name="nuevo_nombre">
                     </div>
                     <div class="campo">
                         <label for="pass-nombre">Contraseña actual:</label>
-                        <input type="password" id="pass-nombre" name="password" class="input" required>
+                        <input type="password" id="pass-nombre" name="password" class="input">
                     </div>
+                    <p class="mensaje-error" role="alert"></p>
                     <div class="modal-acciones">
                         <button type="submit" class="boton-guardar">Guardar</button>
-                        <button type="button" class="boton-cerrar" command="close" commandfor="modal-nombre">Cancelar</button>
+                        <button type="button" class="boton-cerrar">Cancelar</button>
                     </div>
                 </form>
             </dialog>
+
             <dialog id="modal-usuario" class="modal-edicion">
-                <form method="dialog" class="form-modal">
+                <form class="form-modal" novalidate>
                     <h3>Cambiar Nombre de Usuario</h3>
                     <div class="campo">
                         <label for="nuevo-usuario">Nuevo Usuario:</label>
-                        <input type="text" id="nuevo-usuario" name="nuevo_usuario" required>
+                        <input type="text" id="nuevo-usuario" name="nuevo_usuario">
                     </div>
                     <div class="campo">
                         <label for="pass-usuario">Contraseña actual:</label>
-                        <input type="password" id="pass-usuario" name="password" class="input" required>
+                        <input type="password" id="pass-usuario" name="password" class="input">
                     </div>
+                    <p class="mensaje-error" role="alert"></p>
                     <div class="modal-acciones">
                         <button type="submit" class="boton-guardar">Guardar</button>
-                        <button type="button" class="boton-cerrar" command="close" commandfor="modal-usuario">Cancelar</button>
+                        <button type="button" class="boton-cerrar">Cancelar</button>
                     </div>
                 </form>
             </dialog>
+
             <dialog id="modal-email" class="modal-edicion">
-                <form method="dialog" class="form-modal">
+                <form class="form-modal" novalidate>
                     <h3>Cambiar Email</h3>
                     <div class="campo">
                         <label for="nuevo-email">Nuevo Email:</label>
-                        <input type="email" id="nuevo-email" name="nuevo_email" required>
+                        <input type="email" id="nuevo-email" name="nuevo_email">
                     </div>
                     <div class="campo">
                         <label for="pass-email">Contraseña actual:</label>
-                        <input type="password" id="pass-email" name="password" class="input" required>
+                        <input type="password" id="pass-email" name="password" class="input">
                     </div>
+                    <p class="mensaje-error" role="alert"></p>
                     <div class="modal-acciones">
                         <button type="submit" class="boton-guardar">Guardar</button>
-                        <button type="button" class="boton-cerrar" command="close" commandfor="modal-email">Cancelar</button>
+                        <button type="button" class="boton-cerrar">Cancelar</button>
                     </div>
                 </form>
             </dialog>
         </section>
     </main>
+
+    <script type="module" src="../js/perfil.js"></script>
 </body>
+
 </html>

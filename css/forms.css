@@ -56,6 +56,32 @@ input:focus {
     border-color: #4F46E5;
 }
 
+.boton-baja,
+.boton-si-baja,
+.boton-no-baja {
+    padding: 0.5rem 1rem;
+    margin: 0.3rem;
+    border-radius: 6px;
+    border: 2px solid #b00020;
+    cursor: pointer;
+}
+
+.boton-baja,
+.boton-no-baja {
+    background: rgb(158, 26, 26);
+    color: #b00020;
+}
+
+.boton-si-baja {
+    background: #b00020;
+    color: white;
+}
+
+#mensaje-tienda {
+    font-weight: bold;
+}
+
+
 /* Formularios perfil */
 body.pagina-perfil .form {
     border: 0.08em solid black;
@@ -66,12 +92,22 @@ body.pagina-perfil .form {
 }
 
 body.pagina-perfil legend {
-    padding: 0 0.4em;
+    float: left;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 0.8em;
+    font-weight: bold;
 }
+
 
 body.pagina-perfil .form-idioma {
     border: none;
     padding: 0;
+}
+
+/* Para q el campo este debajo y no al lado */
+body.pagina-perfil legend + .grupo-datos {
+    clear: both;
 }
 
 body.pagina-perfil .grupo-datos {
@@ -108,7 +144,7 @@ body.pagina-perfil .boton-guardar {
     border-radius: 0.5em;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    color: black;
+    color: white;
 }
 
 body.pagina-perfil .boton-cancelar:hover {
@@ -224,3 +260,12 @@ body.pagina-perfil .boton-cerrar:hover {
     text-decoration: underline;
     font-weight: bold;
 }
+
+/* Mensaje de éxito del perfil */
+.mensaje-ok {
+    color: #1b7f3b;
+    font-weight: bold;
+    min-height: 1.2em;
+}
+
+
