@@ -16,26 +16,27 @@
 
 <body class="pagina-compra">
     <nav aria-label="principal" class="principal">
-    <strong>LingoWeb</strong>
-    <input type="checkbox" id="menu-toggle">
-    <label for="menu-toggle" class="hamburguesa" aria-label="Abrir menú">☰</label>
-    <p class="enlaces">
-        <a href="../dashboard/dashboard-principal.html">CURSOS</a>
-        <a href="../perfil/perfil-usuario.html">PERFIL</a>
-        <a href="../ranking/ranking-personal.html">RANKING</a>
-        <a href="../tienda/tienda.html">TIENDA</a>
-    </p>
-</nav>
+        <strong>LingoWeb</strong>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="hamburguesa" aria-label="Abrir menú">☰</label>
+        <p class="enlaces">
+            <a href="../dashboard/dashboard-principal.html">CURSOS</a>
+            <a href="../perfil/perfil-usuario.html">PERFIL</a>
+            <a href="../ranking/ranking-personal.html">RANKING</a>
+            <a href="../tienda/tienda.html">TIENDA</a>
+        </p>
+    </nav>
+
 
     <main>
-        <section class="confirmacion">
+        <section class="confirmacion" role="status">
             <h1>¡Compra realizada con éxito!</h1>
-            <p>Ya activamos tu Plan. Podés empezar a usarlo cuando quieras.</p>
-
+            <p id="detalle-compra">Ya activamos tu plan. Podés empezar a usarlo cuando quieras.</p>
             <a href="../dashboard/dashboard-principal.html" class="volver">Ir a mis cursos</a>
         </section>
     </main>
 
+    <script type="module" src="../js/compraExitosa.js"></script>
 </body>
 
 </html>

@@ -209,3 +209,18 @@ body.pagina-perfil .boton-cerrar:hover {
     background-color: rgb(215, 65, 65);
     color: white;
 }
+
+.mensaje-error {
+    color: #b00020;
+    font-weight: bold;
+    min-height: 1.2em;
+}
+
+.plan-actual {
+    font-weight: bold;
+}
+
+.enlaces a.activo {
+    text-decoration: underline;
+    font-weight: bold;
+}
