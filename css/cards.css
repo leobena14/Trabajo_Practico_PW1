@@ -306,3 +306,39 @@ body.pagina-leccion .boton-comprobar {
     border-radius: 1em;
     text-align: center;
 }
+
+/* --- ESTILOS PARA EL BOTÓN DE AUDIO PERSONALIZADO --- */
+.audio-container {
+    display: flex;
+    justify-content: center;
+    margin: 1em 0;
+}
+
+.boton-audio {
+    background-color: #4F46E5; 
+    color: white;
+    border: none;
+    border-radius: 2em; 
+    padding: 0.5em 1.5em;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    font-family: inherit; 
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2); 
+}
+
+.boton-audio:hover {
+    background-color: #4338CA; 
+}
+
+.boton-audio:active {
+    transform: scale(0.95); 
+}
+
+
+.tarjeta .boton-audio {
+    font-size: 0.9em;
+    padding: 0.3em 1em;
+    margin-top: 0.5em;
+}
