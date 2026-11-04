@@ -107,10 +107,15 @@ document.addEventListener("DOMContentLoaded", () => {
         textoVidas.textContent = "";
 
         let tarjetasHTML = "";
-        leccion.tarjetas.forEach(tarjeta => {
+        leccion.tarjetas.forEach((tarjeta, index) => {
             let audioHTML = "";
             if (tarjeta.audio) {
-                audioHTML = `<audio controls src="../audio/${tarjeta.audio}"></audio>`;
+                audioHTML = `
+                    <div class="audio-container">
+                        <audio id="audio-tarjeta-${index}" src="../audio/${tarjeta.audio}"></audio>
+                        <button type="button" class="boton-audio" data-audio-id="audio-tarjeta-${index}" aria-label="Reproducir audio">🔊 Escuchar</button>
+                    </div>
+                `;
             }
             tarjetasHTML += `
                 <article class="tarjeta">
@@ -126,6 +131,14 @@ document.addEventListener("DOMContentLoaded", () => {
             <section class="repaso">${tarjetasHTML}</section>
             <button type="button" id="boton-terminar" class="boton-comprobar">Terminar repaso</button>
         `;
+
+           const botonesAudio = document.querySelectorAll(".boton-audio");
+        botonesAudio.forEach(boton => {
+            boton.addEventListener("click", () => {
+                const idAudio = boton.getAttribute("data-audio-id");
+                document.getElementById(idAudio).play();
+            });
+        });
 
         document.getElementById("boton-terminar").addEventListener("click", () => {
             barraProgreso.value = 100;
@@ -212,12 +225,16 @@ document.addEventListener("DOMContentLoaded", () => {
         elegidas = [];
         disponibles = mezclar(ejercicio.respuesta.concat(ejercicio.extras));
         comprobado = false;
-
+     
         let audioHTML = "";
         if (ejercicio.audio) {
-            audioHTML = `<audio controls src="../audio/${ejercicio.audio}"></audio>`;
+            audioHTML = `
+                <div class="audio-container">
+                    <audio id="audio-ejercicio" src="../audio/${ejercicio.audio}"></audio>
+                    <button type="button" id="boton-audio" class="boton-audio" aria-label="Reproducir audio">🔊 Escuchar</button>
+                </div>
+            `;
         }
-
         main.innerHTML = `
             <strong>Ejercicio ${indice + 1}/${total}</strong>
             <h1>${ejercicio.consigna}</h1>
@@ -243,6 +260,13 @@ document.addEventListener("DOMContentLoaded", () => {
         `;
 
         dibujarPalabras();
+        // --- LÓGICA DEL BOTÓN DE AUDIO ---
+        const botonAudio = document.getElementById("boton-audio");
+        if (botonAudio) {
+            botonAudio.addEventListener("click", () => {
+                document.getElementById("audio-ejercicio").play();
+            });
+        }
         document.getElementById("boton-comprobar").addEventListener("click", comprobar);
         document.getElementById("boton-continuar").addEventListener("click", continuar);
     };
