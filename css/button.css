@@ -24,6 +24,18 @@ body.pagina-dashboard button {
 body.pagina-dashboard button:hover {
     background: #e0e0e0;
 }
+/* Cartel de aviso cuando se completan los cursos */
+.aviso-completado {
+    grid-column: 1 / -1;
+    background-color: #4F46E5;
+    color: white;
+    padding: 1rem;
+    border-radius: 1rem;
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
 
 /* Botón lección */
 body.pagina-leccion button {

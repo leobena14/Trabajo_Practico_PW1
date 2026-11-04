@@ -43,22 +43,35 @@ document.addEventListener("DOMContentLoaded", () => {
         // 1. Dibujamos las tarjetas (el progreso sale de las lecciones que completó el usuario)
         cursosDelUsuario.forEach(curso => {
             const progreso = porcentajeCurso(usuarioActivo, curso.id);
-            const textoBoton = progreso === 0 ? "Empezar" : "Continuar";
-
+           let textoBoton = "Continuar";
+           if (progreso === 0) {
+            textoBoton = "Empezar";
+              } else if (progreso === 100) {
+                textoBoton = "Repasar";
+            }
             const article = document.createElement("article");
             article.className = "cursos";
-
             article.innerHTML = `
                 <h3><span aria-hidden="true">${curso.bandera}</span> ${curso.nombre}</h3>
-                <p> Progreso: ${progreso}%</p>
-                <p> Nivel: ${curso.nivel}</p>
+                <p>Progreso: ${progreso}%</p>
+                <p>Nivel: ${curso.nivel}</p>
                 <a href="../mapa-de-unidades-y-lecciones/curso.html?idioma=${curso.id}">${textoBoton}</a>
                 <a href="#" class="quitar" data-id="${curso.id}">Quitar</a>
             `;
             contenedorCursos.appendChild(article);
         });
+        // 2. Mostrar aviso si TODOS los cursos activos del usuario se completaron al 100%
+        const todosCompletos = cursosDelUsuario.length > 0 && 
+            cursosDelUsuario.every(c => porcentajeCurso(usuarioActivo, c.id) === 100);
 
-        // 2. Si faltan cursos, mostramos el botón de restaurar
+        if (todosCompletos) {
+            const avisoCompletado = document.createElement("div");
+            avisoCompletado.className = "aviso-completado";
+            avisoCompletado.textContent = "🎉 ¡Felicitaciones! Completaste todos los cursos. En 24 horas tendrás nuevas lecciones disponibles.";
+            contenedorCursos.insertBefore(avisoCompletado, contenedorCursos.firstChild);
+        }
+
+        // 3. Si faltan cursos, mostramos el botón de restaurar
         if (cursosDelUsuario.length < todosLosCursos.length) {
             const btnRestaurar = document.createElement("a");
             btnRestaurar.href = "#";

@@ -34,8 +34,8 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("Por favor, completá todos los campos.");
             return;
         }
-        // Validación de contenido ofensivo en el nombre y nombre de usuario
-        if (contieneOfensas(nombre, usuario)) {
+        // Validación de contenido ofensivo en el nombre, nombre de usuario y email
+        if (contieneOfensas(nombre, usuario, email)) {
             alert("Contiene contenido ofensivo/explícito.");
             return;
         }

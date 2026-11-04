@@ -82,6 +82,6 @@ document.addEventListener("DOMContentLoaded", () => {
     } else if (usuarioActivo.plan !== "premium") {
         textoUnidadActual.textContent = "¡Completaste las unidades gratuitas! Con el Plan Premium podés seguir con la Unidad 3.";
     } else {
-        textoUnidadActual.textContent = "🎉 ¡Felicitaciones! Completaste todo el curso.";
+        textoUnidadActual.textContent = "🎉 ¡Felicitaciones! Completaste todo el curso. En 24 horas tendrás nuevas lecciones disponibles.";
     }
 });

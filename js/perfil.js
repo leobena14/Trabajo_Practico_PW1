@@ -99,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
 
             
-            if ((campo === "nombre" || campo === "usuario") && contieneOfensas(valorNuevo)) {
+            if ((campo === "nombre" || campo === "usuario" || campo === "email") && contieneOfensas(valorNuevo)) {
                 mensaje.textContent = "⚠ Error: contiene contenido ofensivo/explícito.";
                 return;
             }
