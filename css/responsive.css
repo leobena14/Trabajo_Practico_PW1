@@ -460,6 +460,11 @@
     body.pagina-perfil .form-modal .campo input {
         width: 100%;
     }
+    .hamburguesa {
+        order: -1;
+        cursor: pointer;
+        color: white;
+    }
 }
 
 /* ---------- Ranking ---------- */
