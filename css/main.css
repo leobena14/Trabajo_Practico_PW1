@@ -97,6 +97,9 @@ body.pagina-leccion main {
 body.pagina-mapa main {
     width: 100%;
 }
+body.pagina-mapa main h1{
+    margin-top: 3.5rem;
+}
 
 /* Tablas ranking */
 body.pagina-ranking table {

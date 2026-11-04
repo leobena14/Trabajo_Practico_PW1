@@ -84,8 +84,10 @@ body.pagina-leccion button {
 }
 .boton-volver{
     position: absolute;
-    top:1.5em;
-    left:5em;
+    top:1 rem;
+    left:1rem;
+    font-size: 1.2rem;
+    padding: 0.4em 0.8em;
     z-index: 100;
 }
 
