@@ -4,7 +4,7 @@ import { planes } from './planes.js';
 // Lista de palabras no permitidas
 const palabrasProhibidas = [
     "boludo", "boluda", "pelotudo", "pelotuda", "forro", "forra",
-    "pajero", "pajera", "sorrete", "cagon", "cagona", "gorreado", "gorreada", "malparido", "malparida",
+    "pajero", "pajera", "sorete", "cagon", "cagona", "gorreado", "gorreada", "malparido", "malparida",
     "concha", "conchuda", "conchudo", "pija", "chota", "orto", "puto", "puta", "trolo", "trola",
     "hdp", "hijodeputa", "hdmp", "hijodemilputa", "gil", "gilastrun", "culiao", "culia",
     "culiado", "culiada", "culiando", "culiandome", "culiandonos", "judio", "judia", "judios", "judias",
@@ -15,7 +15,7 @@ function contieneOfensas(...textos) {
     return textos.some(texto => {
         const textoMinusculas = texto.toLowerCase();
         return palabrasProhibidas.some(palabra => 
-            textoMinusculas.includes(palabra.toLowerCase())
+            textoMinusculas.includes(palabra)
         );
     });
 }
