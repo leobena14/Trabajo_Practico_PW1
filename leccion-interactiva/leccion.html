@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/cards.css">
+    <link rel="stylesheet" href="../css/button.css">
+    <link rel="stylesheet" href="../css/progress.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+    <title>Lección</title>
+</head>
+
+<body class="pagina-leccion">
+    <header class="barra-leccion">
+        <a href="../dashboard/dashboard-principal.html" id="boton-salir" aria-label="Salir de la lección">X</a>
+        <progress id="barra-progreso" value="0" max="100" aria-label="Progreso de la lección"></progress>
+        <p id="vidas"></p>
+    </header>
+
+    <!-- Confirmación para salir (está oculta hasta que se toca la X) -->
+    <section id="confirmar-salida" class="caja-leccion" role="alertdialog" aria-labelledby="texto-salida" hidden>
+        <p id="texto-salida">Si salís ahora, <strong>no se guarda</strong> el avance de esta lección. ¿Querés salir?</p>
+        <button type="button" id="boton-si-salir" class="boton-comprobar">Sí, salir</button>
+        <button type="button" id="boton-no-salir" class="boton-comprobar">No, seguir</button>
+    </section>
+
+    <main>
+        <!-- El contenido de la lección se agrega desde js/leccion.js -->
+    </main>
+
+    <script type="module" src="../js/leccion.js"></script>
+</body>
+
+</html>

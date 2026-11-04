@@ -1,6 +1,5 @@
-console.log("¡El archivo dashboard.js se está cargando!");
-
 import { traerDeStorage, guardarEnStorage } from './storage.js';
+import { porcentajeCurso } from './progreso.js';
 
 document.addEventListener("DOMContentLoaded", () => {
     const usuarioActivo = traerDeStorage("usuarioActivo");
@@ -11,9 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const todosLosCursos = [
-        { id: "ingles", nombre: "Inglés desde Español", bandera: "🇬🇧", nivel: "Intermedio (B1)", progreso: 45, boton: "Continuar" },
-        { id: "aleman", nombre: "Alemán desde Español", bandera: "🇩🇪", nivel: "Intermedio (B1)", progreso: 12, boton: "Continuar" },
-        { id: "chino", nombre: "Chino desde Español", bandera: "🇨🇳", nivel: "Inicial (HSK 1)", progreso: 0, boton: "Empezar" }
+        { id: "ingles", nombre: "Inglés desde Español", bandera: "🇬🇧", nivel: "Intermedio (B1)" },
+        { id: "aleman", nombre: "Alemán desde Español", bandera: "🇩🇪", nivel: "Intermedio (B1)" },
+        { id: "chino", nombre: "Chino desde Español", bandera: "🇨🇳", nivel: "Inicial (HSK 1)" }
     ];
 
     let cursosDelUsuario = traerDeStorage("cursosActivos");
@@ -23,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const main = document.querySelector("main");
-    
+
     // Borramos el contenedor viejo si existe (por si recargamos)
     const contenedorViejo = document.getElementById("contenedor-cursos");
     if (contenedorViejo) contenedorViejo.remove();
@@ -31,8 +30,8 @@ document.addEventListener("DOMContentLoaded", () => {
     // Creamos el contenedor principal
     const contenedorCursos = document.createElement("div");
     contenedorCursos.id = "contenedor-cursos";
-    
-    contenedorCursos.style.gridColumn = "1 / -1"; 
+
+    contenedorCursos.style.gridColumn = "1 / -1";
     contenedorCursos.style.display = "grid";
     contenedorCursos.style.gridTemplateColumns = "repeat(3, 1fr)";
     contenedorCursos.style.gap = "1.5rem";
@@ -41,16 +40,19 @@ document.addEventListener("DOMContentLoaded", () => {
     const dibujarTarjetas = () => {
         contenedorCursos.innerHTML = ""; // Limpiamos todo (tarjetas y botón anterior)
 
-        // 1. Dibujamos las tarjetas
+        // 1. Dibujamos las tarjetas (el progreso sale de las lecciones que completó el usuario)
         cursosDelUsuario.forEach(curso => {
+            const progreso = porcentajeCurso(usuarioActivo, curso.id);
+            const textoBoton = progreso === 0 ? "Empezar" : "Continuar";
+
             const article = document.createElement("article");
-            article.className = "cursos"; 
+            article.className = "cursos";
 
             article.innerHTML = `
                 <h3><span aria-hidden="true">${curso.bandera}</span> ${curso.nombre}</h3>
-                <p> Progreso: ${curso.progreso}%</p>
+                <p> Progreso: ${progreso}%</p>
                 <p> Nivel: ${curso.nivel}</p>
-                <a href="../mapa-de-unidades-y-lecciones/mapa-de-${curso.id}.html">${curso.boton}</a>
+                <a href="../mapa-de-unidades-y-lecciones/curso.html?idioma=${curso.id}">${textoBoton}</a>
                 <a href="#" class="quitar" data-id="${curso.id}">Quitar</a>
             `;
             contenedorCursos.appendChild(article);
@@ -62,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
             btnRestaurar.href = "#";
             btnRestaurar.className = "restaurar";
             btnRestaurar.textContent = "Restaurar todos los cursos";
-            
+
             // Estilos para que se vea bien en la grilla
             btnRestaurar.style.gridColumn = "1 / -1";
             btnRestaurar.style.textAlign = "center";
@@ -83,13 +85,13 @@ document.addEventListener("DOMContentLoaded", () => {
     // Escuchamos el clic en "Quitar"
     contenedorCursos.addEventListener("click", (e) => {
         if (e.target.classList.contains("quitar")) {
-            e.preventDefault(); 
+            e.preventDefault();
             const idCurso = e.target.getAttribute("data-id");
-            
+
             // Filtramos los cursos
             cursosDelUsuario = cursosDelUsuario.filter(c => c.id !== idCurso);
             guardarEnStorage("cursosActivos", cursosDelUsuario);
-            
+
             dibujarTarjetas(); // Volvemos a dibujar (esto limpia el anterior y crea el nuevo)
         }
     });

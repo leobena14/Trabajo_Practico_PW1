@@ -106,7 +106,7 @@ document.addEventListener("DOMContentLoaded", () => {
             return;
         }
 
-        // 5. CVV: 3 o 4 números
+        // 5. CVV: 3 números
         if ((cvv.length !== 3) || isNaN(cvv)) {
             mostrarError("el CVV debe tener 3 números.");
             return;

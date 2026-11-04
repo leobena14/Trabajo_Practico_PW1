@@ -229,3 +229,80 @@ body.pagina-dashboard .beneficios {
     margin: 1em auto 2em auto;
     display: inline-block;
 }
+
+/* ---------- Mapa y lección generados con JS ---------- */
+
+/* Que "hidden" oculte siempre, aunque el elemento tenga display en otra regla */
+[hidden] {
+    display: none !important;
+}
+
+.contenedor-unidades {
+    width: 100%;
+}
+
+/* Zonas de "Tu respuesta" y "Banco de palabras" */
+.zona-palabras {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5em;
+    min-height: 3em;
+    padding: 0.5em;
+}
+
+#zona-respuesta {
+    width: 60%;
+    margin: 0 auto;
+    border-bottom: 0.15em dashed #4F46E5;
+}
+
+body.pagina-leccion .zona-palabras button {
+    font-size: 1.3em;
+    padding: 0.2em 0.8em;
+    border: none;
+    cursor: pointer;
+}
+
+body.pagina-leccion button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+body.pagina-leccion .texto-vacio {
+    font-size: 1em;
+    color: #555;
+}
+
+/* Mensajes de correcto / incorrecto (con texto, no solo color) */
+body.pagina-leccion .mensaje-correcto {
+    color: #1b7f3b;
+    font-weight: bold;
+}
+
+body.pagina-leccion .mensaje-incorrecto {
+    color: #b00020;
+    font-weight: bold;
+}
+
+/* Botones y links grandes de la lección */
+body.pagina-leccion .boton-comprobar {
+    display: inline-block;
+    font-size: 1.5em;
+    padding: 0.3em 1em;
+    margin: 0.5em;
+    border: none;
+    cursor: pointer;
+}
+
+/* Cajas blancas: resumen final, avisos y confirmación de salida */
+.caja-leccion {
+    width: 80%;
+    max-width: 35em;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: white;
+    border: 0.15em solid #4F46E5;
+    border-radius: 1em;
+    text-align: center;
+}
